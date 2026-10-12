@@ -1,0 +1,22 @@
+[project]
+name = "minilab"
+version = "1.0.0"
+description = "Minimal white-box fixture: static analysis, coverage, test techniques"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+# `source` makes files no test imports count as uncovered instead of vanishing.
+[tool.coverage.run]
+source = ["src/minilab"]
+branch = true
+omit = ["src/minilab/static_fixture.py"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "N", "S"]
